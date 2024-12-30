@@ -12,6 +12,11 @@ defmodule TravelJournalWeb.EntryCard do
       |> Calendar.strftime("%d %b, %Y")
     end
 
+    assigns =
+      assigns
+      |> assign(:start_date, format_date.(assigns.entry.start_date))
+      |> assign(:end_date, format_date.(assigns.entry.end_date))
+
     ~H"""
     <div class="flex flex-row border gap-6 p-6 rounded-lg">
       <img
@@ -31,7 +36,7 @@ defmodule TravelJournalWeb.EntryCard do
         </div>
         <h1 class="font-bold text-3xl">{@entry.name}</h1>
         <h3 class="font-bold">
-          {format_date.(@entry.start_date)} - {format_date.(@entry.end_date)}
+          {@start_date} - {@end_date}
         </h3>
         <p class="text-zinc-600">{@entry.desc}</p>
       </div>
