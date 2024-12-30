@@ -9,6 +9,7 @@ defmodule TravelJournal.Journal.Entry do
     field :start_date, :date
     field :end_date, :date
     field :country, :string
+    field :image, :string
 
     timestamps(type: :utc_datetime)
   end
@@ -16,7 +17,7 @@ defmodule TravelJournal.Journal.Entry do
   @doc false
   def changeset(entry, attrs) do
     entry
-    |> cast(attrs, [:name, :start_date, :end_date, :desc, :country, :location])
-    |> validate_required([:name, :start_date, :end_date, :desc, :country, :location])
+    |> cast(attrs, [:name, :start_date, :end_date, :desc, :country, :location, :image])
+    |> validate_required([:name, :start_date, :end_date, :desc, :country, :location, :image])
   end
 end

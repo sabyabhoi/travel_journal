@@ -15,9 +15,9 @@ defmodule TravelJournalWeb.EntryCard do
     ~H"""
     <div class="flex flex-row border gap-6 p-6 rounded-lg">
       <img
-        src="https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        src={@entry.image}
         class="max-w-xs h-auto object-cover rounded-lg"
-        alt=""
+        alt={"Image of " <> @entry.name}
       />
       <div class="flex flex-col gap-6">
         <div class="flex flex-row gap-6 items-center">
@@ -25,7 +25,7 @@ defmodule TravelJournalWeb.EntryCard do
             <.icon name="hero-map-pin-solid" class="h-6 w-6 bg-red-500" />
             {@entry.country}
           </div>
-          <a href={@entry.location} class="text-zinc-400 underline tracking-wider">
+          <a href={@entry.location} class="text-zinc-400 underline tracking-wider hover:text-zinc-600">
             View on Google Maps
           </a>
         </div>

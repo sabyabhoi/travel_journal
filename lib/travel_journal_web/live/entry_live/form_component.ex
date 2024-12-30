@@ -25,6 +25,7 @@ defmodule TravelJournalWeb.EntryLive.FormComponent do
         <.input field={@form[:desc]} type="text" label="Desc" />
         <.input field={@form[:country]} type="text" label="Country" />
         <.input field={@form[:location]} type="text" label="Location" />
+        <.input field={@form[:image]} type="text" label="Image" />
         <:actions>
           <.button phx-disable-with="Saving...">Save Entry</.button>
         </:actions>
