@@ -7,13 +7,15 @@ defmodule TravelJournalWeb.PageLive do
   end
 
   def render(assigns) do
-    IO.puts("ASSIGNS:")
-    IO.inspect(assigns)
-
     ~H"""
-    <%= for entry <- @entries do %>
-      <.live_component entry={entry} module={TravelJournalWeb.EntryCard} id={entry.id} />
-    <% end %>
+    <div class="flex flex-col gap-4">
+      <.live_component
+        :for={entry <- @entries}
+        entry={entry}
+        module={TravelJournalWeb.EntryCard}
+        id={entry.id}
+      />
+    </div>
     """
   end
 end

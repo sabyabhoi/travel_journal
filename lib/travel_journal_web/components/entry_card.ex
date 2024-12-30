@@ -1,5 +1,8 @@
 defmodule TravelJournalWeb.EntryCard do
+  alias TravelJournalWeb.CoreComponents
   use Phoenix.LiveComponent
+
+  import CoreComponents
 
   def render(assigns) do
     format_date = fn date ->
@@ -10,22 +13,27 @@ defmodule TravelJournalWeb.EntryCard do
     end
 
     ~H"""
-    <div class="flex flex-row border gap-4 p-4 rounded-lg">
+    <div class="flex flex-row border gap-6 p-6 rounded-lg">
       <img
         src="https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        class="max-w-xs h-auto object-cover"
+        class="max-w-xs h-auto object-cover rounded-lg"
         alt=""
       />
-      <div class="flex flex-col gap-4">
-        <div class="flex flex-row gap-4">
-          <div>{@entry.country}</div>
-          <a href={@entry.location}>View on Google Maps</a>
+      <div class="flex flex-col gap-6">
+        <div class="flex flex-row gap-6 items-center">
+          <div class="uppercase tracking-widest flex flex-row gap-2 items-center">
+            <.icon name="hero-map-pin-solid" class="h-6 w-6 bg-red-500" />
+            {@entry.country}
+          </div>
+          <a href={@entry.location} class="text-zinc-400 underline tracking-wider">
+            View on Google Maps
+          </a>
         </div>
         <h1 class="font-bold text-3xl">{@entry.name}</h1>
         <h3 class="font-bold">
           {format_date.(@entry.start_date)} - {format_date.(@entry.end_date)}
         </h3>
-        <p>{@entry.desc}</p>
+        <p class="text-zinc-600">{@entry.desc}</p>
       </div>
     </div>
     """
