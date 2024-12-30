@@ -7,7 +7,7 @@ defmodule TravelJournalWeb.FilterForm do
 
   def render(assigns) do
     ~H"""
-    <div class="flex flex-col p-4 gap-2">
+    <div class="flex flex-col gap-2">
       <.radio_button country="All Countries" />
       <.radio_button :for={country <- @countries} country={country} />
     </div>

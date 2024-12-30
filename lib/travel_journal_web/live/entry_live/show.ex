@@ -5,7 +5,7 @@ defmodule TravelJournalWeb.EntryLive.Show do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, socket}
+    {:ok, socket, layout: {TravelJournalWeb.Layouts, :liveview}}
   end
 
   @impl true

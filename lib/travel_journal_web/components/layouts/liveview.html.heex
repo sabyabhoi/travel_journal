@@ -4,7 +4,9 @@
     <h1>My Travel Journal.</h1>
   </a>
 </header>
-<main>
-  <.flash_group flash={@flash} />
-  {@inner_content}
+<main class="flex flex-col gap-4 items-center pt-4 font-mono">
+  <div class="max-w-7xl">
+    <.flash_group flash={@flash} />
+    {@inner_content}
+  </div>
 </main>

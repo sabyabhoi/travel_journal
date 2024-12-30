@@ -6,7 +6,11 @@ defmodule TravelJournalWeb.EntryLive.Index do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, stream(socket, :entries, Journal.list_entries())}
+    {
+      :ok,
+      stream(socket, :entries, Journal.list_entries()),
+      layout: {TravelJournalWeb.Layouts, :liveview}
+    }
   end
 
   @impl true
