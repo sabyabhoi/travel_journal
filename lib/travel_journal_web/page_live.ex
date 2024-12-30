@@ -21,9 +21,9 @@ defmodule TravelJournalWeb.PageLive do
 
   def render(assigns) do
     ~H"""
-    <div class="grid grid-cols-5 m-4 gap-4">
+    <div class="grid grid-cols-3 md:grid-cols-5 m-4 gap-4">
       <.live_component module={FilterForm} id="filter-form" countries={@countries} />
-      <div class="col-span-3 grid grid-cols-1 gap-4">
+      <div class="col-span-2 md:col-span-3 grid grid-cols-1 gap-4">
         <.live_component
           :for={entry <- @entries}
           entry={entry}
@@ -31,7 +31,6 @@ defmodule TravelJournalWeb.PageLive do
           id={entry.id}
         />
       </div>
-      <div />
     </div>
     """
   end
