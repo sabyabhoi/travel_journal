@@ -17,7 +17,7 @@ defmodule TravelJournalWeb.Router do
   scope "/", TravelJournalWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", PageLive
 
     live "/entries", EntryLive.Index, :index
     live "/entries/new", EntryLive.Index, :new
