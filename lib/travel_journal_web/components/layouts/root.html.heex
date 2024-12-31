@@ -12,6 +12,30 @@
     </script>
   </head>
   <body class="bg-zinc-50">
+    <header class="bg-red-500 text-white p-4 font-extrabold flex flex-row justify-between items-center gap-2">
+      <div></div>
+      <a class="flex flex-row justify-center items-center gap-2" href="/">
+        <.icon name="hero-globe-americas" class="h-8 w-8" />
+        <h1>My Travel Journal.</h1>
+      </a>
+      <div class="flex flex-row items-center gap-4 text-white">
+        <%= if @current_user do %>
+          <.link href={~p"/users/settings"} class="leading-6 font-semibold">
+            <.icon name="hero-cog-6-tooth-solid" class="h-6 w-6" />
+          </.link>
+          <.link href={~p"/users/log_out"} method="delete" class="leading-6 font-semibold">
+            Log out
+          </.link>
+        <% else %>
+          <.link href={~p"/users/register"} class="leading-6  font-semibold">
+            Register
+          </.link>
+          <.link href={~p"/users/log_in"} class="leading-6 font-semibold">
+            Log in
+          </.link>
+        <% end %>
+      </div>
+    </header>
     {@inner_content}
   </body>
 </html>
