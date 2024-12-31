@@ -25,7 +25,7 @@ defmodule TravelJournalWeb.FilterForm do
 
   def radio_button(assigns) do
     ~H"""
-    <div class="flex flex-row items-center gap-2 p-4 border rounded-lg">
+    <div class="flex flex-row items-center gap-2 p-4 border rounded-lg bg-white drop-shadow-sm">
       <input
         id={@country}
         type="radio"

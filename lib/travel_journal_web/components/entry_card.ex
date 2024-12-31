@@ -18,7 +18,7 @@ defmodule TravelJournalWeb.EntryCard do
       |> assign(:end_date, format_date.(assigns.entry.end_date))
 
     ~H"""
-    <div class="flex flex-row border gap-6 p-6 rounded-lg">
+    <div class="flex flex-row border gap-6 p-6 rounded-lg bg-white drop-shadow-sm">
       <img
         src={@entry.image}
         class="max-w-xs h-auto object-cover rounded-lg"
