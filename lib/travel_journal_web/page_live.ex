@@ -34,4 +34,15 @@ defmodule TravelJournalWeb.PageLive do
     </div>
     """
   end
+
+  def handle_event("filter", %{"bordered-radio" => country}, socket) do
+    entries =
+      if country == "All Countries" do
+        Journal.list_entries()
+      else
+        Journal.list_entries_by_country(country)
+      end
+
+    {:noreply, assign(socket, entries: entries)}
+  end
 end

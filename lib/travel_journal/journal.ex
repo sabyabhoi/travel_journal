@@ -18,7 +18,14 @@ defmodule TravelJournal.Journal do
 
   """
   def list_entries do
-    Repo.all(Entry)
+    Repo.all(Entry, order_by: [desc: :end_date])
+  end
+
+  def list_entries_by_country(nil), do: list_entries()
+
+  def list_entries_by_country(country) do
+    from(Entry, where: [country: ^country])
+    |> Repo.all()
   end
 
   @doc """
